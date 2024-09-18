@@ -136,5 +136,22 @@ gh auth login
 # web method most likely the easiest
 # use existing GitHub SSH keys
 
+# install NeoVim from source
+mkdir temp
+cd temp || exit
+sudo apt-get install ninja-build gettext cmake unzip curl -y
+git clone https://github.com/neovim/neovim
+cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+cd .. || exit
+cd .. || exit
+sudo rm -r ./temp
+
+# install languages, bun and Java
+sudo apt install -y default-jdk
+curl -fsSL https://bun.sh/install | bash
+# shellcheck source=/dev/null
+source ~/.bashrc
+
 # then remove the dot_files firectory 
 sudo rm -R ~/dot_files

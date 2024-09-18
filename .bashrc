@@ -14,7 +14,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias c='cd'
-alias .c='cd ..'
+alias cl='clear'
+alias c-='cd ..'
 
 
 # bun
