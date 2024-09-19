@@ -16,6 +16,7 @@ alias l='ls -CF'
 alias c='cd'
 alias cl='clear'
 alias c-='cd ..'
+alias mk='mkdir'
 
 
 # bun
