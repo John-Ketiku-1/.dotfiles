@@ -4,32 +4,32 @@
 # Pi Zero 2 W .dotfiles and setup script
 
 sudo apt update
-sudo apt upgrade --without-new-pkgs
-sudo apt full-upgrade
-sudo apt update
 sudo apt upgrade -y
-sudo apt autoremove -y
 
 # common programs
+sudo apt remove w3m -y
 sudo apt install git -y
 sudo apt install gh -y
 sudo apt install stow -y
-sudo apt install neofetch -y
+sudo apt install tree -y
+# for nvim TS LSP
+sudo apt install npm -y
 
-# install NeoVim, new version, now part of Rasbian :)
+# install NeoVim from source
+mkdir temp
+cd temp || exit
+sudo apt-get install ninja-build gettext cmake unzip curl build-essential -y
+git clone https://github.com/neovim/neovim
+cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+cd .. || exit
+cd .. || exit
+sudo rm -r ./temp
 
-# install languages
-curl -fsSL https://bun.sh/install | bash
+# install programming languages, bun and Java
 sudo apt install -y default-jdk
+curl -fsSL https://bun.sh/install | bash
+source ~/.bashrc
 
-# install Fish Shell
-sudo apt install gpg -y
-echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
-curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
-sudo apt update
-sudo apt install fish -y
-
-# install Starship for Fish
-curl -sS https://starship.rs/install.sh | sh
-
-sudo apt remove w3m -y
+# reboot system
+sudo reboot now
