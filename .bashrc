@@ -22,3 +22,5 @@ alias mk='mkdir'
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
+export DENO_INSTALL="$HOME/.deno"
+export PATH=$DENO_INSTALL/bin:$PATH

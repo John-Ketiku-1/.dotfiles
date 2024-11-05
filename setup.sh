@@ -1,7 +1,7 @@
 #!/bin/env bash
 # Created by: John
 # Created on: Sept 2024
-# Pi Zero 2 W .dotfiles and setup script
+# AWS Debian Linux dotfiles and setup script
 
 sudo apt update
 sudo apt upgrade -y

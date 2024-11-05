@@ -1,8 +1,18 @@
-# .dotfiles
+# dotfiles
 
 This is the dotfiles and setup.sh script for AWS Debian EC2 instance.
 The following need to be installed first:
-- sudo apt update
-- sudo apt install git gh stow -y
+```bash
+sudo apt update && sudo apt install git gh stow -y
+```
 
-Then clone this repo to the home directory, cd into it nd run the stow command. Then run setup.sh.
+Then:
+```bash
+- gh auth login
+- gh repo clone dotfiles
+- sudo rm -r .gitconfig .bashrc .config
+- cd dotfiles
+- stow .
+- source ~/.bashrc
+- bash setup.sh
+```
